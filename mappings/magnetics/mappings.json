@@ -1,0 +1,18 @@
+{
+    "ids_properties/homogeneous_time": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0
+    },
+    "ip": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 1
+    },
+    "ip[#]": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AMC_PLASMA_CURRENT"
+        },
+        "SCALE": 1000
+    }
+}
