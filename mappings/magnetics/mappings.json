@@ -17,7 +17,7 @@
     },
     "flux_loop": {
         "MAP_TYPE": "VALUE",
-        "VALUE": 46
+        "VALUE": "{{ length(flux_loop_names) }}"
     },
     "flux_loop[#]/name": {
         "MAP_TYPE": "VALUE",

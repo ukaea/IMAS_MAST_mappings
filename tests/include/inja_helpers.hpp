@@ -9,14 +9,14 @@ float test_cython() {
 
 std::string test_render(std::string key) {
     inja::json data;
-    data["indices"] = {1, 2, 3};
+    data["indices"] = {0, 1, 2};
     return inja::render(key, data);
 };
 
 std::string test_render_wglobals(std::string temp_globals, std::string key) {
     inja::json data;
     data = inja::json::parse(temp_globals);
-    data["indices"] = {1, 2, 3};
+    data["indices"] = {0, 1, 2};
     
     return inja::render(key, data);
 };
