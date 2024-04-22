@@ -30,7 +30,7 @@
     },
     "flux_loop[#]/position": {
         "MAP_TYPE": "VALUE",
-        "VALUE": "{{ length(phi_coords) }}"
+        "VALUE": "{{ length(phi_coord) }}"
     },
     "flux_loop[#]/position[#]/r": {
         "MAP_TYPE": "VALUE",
