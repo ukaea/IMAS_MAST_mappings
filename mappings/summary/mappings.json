@@ -1,6 +1,204 @@
 {
     "ids_properties/homogeneous_time": {
         "MAP_TYPE": "VALUE",
-        "VALUE": 2
+        "VALUE": 1
+    },
+    "ids_properties/creation_date": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "/meta_date",
+        "COMMENT": "Unable to get from /meta_date source2"
+    },
+    "time": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AMC_PLASMA CURRENT"
+        }
+    },
+    "global_quantities/b0/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_BVAC_VAL"
+        }
+    },
+    "global_quantities/b0/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_BVAC_VAL"
+    },
+    "global_quantities/r0/value": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 1.0
+    },
+    "global_quantities/elongation/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_ELONGATION"
+        }
+    },
+    "global_quantities/elongation/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_ELONGATION"
+    },
+    "global_quantities/ip/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AMC_PLASMA CURRENT"
+        }
+    },
+    "global_quantities/ip/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "AMC_PLASMA CURRENT"
+    },
+    "global_quantities/beta_tor/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_BETAT"
+        }
+    },
+    "global_quantities/beta_tor/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_BETAT"
+    },
+    "global_quantities/q_95/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_Q_95"
+        }
+    },
+    "global_quantities/q_95/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_Q_95"
+    },
+    "global_quantities/h_98/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "ESM_H_ITER98pby2"
+        }
+    },
+    "global_quantities/h_98/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "ESM_H_ITER98PBY2"
+    },
+    "global_quantities/power_ohm/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "ESM_PPHIX"
+        }
+    },
+    "global_quantities/power_ohm/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "ESM_PPHIX"
+    },
+    "global_quantities/power_radiated/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "ABM_PRAD_POL"
+        }
+    },
+    "global_quantities/power_radiated/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "ABM_PRAD_POL"
+    },
+    "heating_current_drive/power_nbi/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "ANB_TOT_SUM_POWER"
+        },
+        "SCALE": 1000.0
+    },
+    "heating_current_drive/power_nbi/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "ANB_TOT_SUM_POWER"
+    },
+    "heating_current_drive/nbi": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ length(NBI_POWER) }}"
+    },
+    "heating_current_drive/nbi[#]/power/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "{{ at(NBI_POWER, indices.0) }}"
+        },
+        "SCALE": 1000.0
+    },
+    "heating_current_drive/nbi[#]/power/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(NBI_POWER, indices.0) }}"
+    },
+    "local/magnetic_axis/n_e/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AYC_NE_CORE"
+        }
+    },
+    "local/magnetic_axis/n_e/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "AYC_NE_CORE"
+    },
+    "local/magnetic_axis/t_e/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AYC_TE_CORE"
+        }
+    },
+    "local/magnetic_axis/t_e/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "AYC_TE_CORE"
+    },
+    "line_average/n_e/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "ANE_DENSITY"
+        }
+    },
+    "line_average/n_e/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "ANE_DENSITY"
+    },
+    "boundary/elongation/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_ELONGATION"
+        }
+    },
+    "boundary/elongation/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_ELONGATION"
+    },
+    "boundary/triangularity_upper/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_TRIANG_UPPER"
+        }
+    },
+    "boundary/triangularity_upper/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_TRIANG_UPPER"
+    },
+    "boundary/triangularity_lower/value": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_TRIANG_LOWER"
+        }
+    },
+    "boundary/triangularity_lower/source": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "EFM_TRIANG_LOWER"
     }
 }

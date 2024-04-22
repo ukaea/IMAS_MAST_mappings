@@ -1,3 +1,4 @@
 {
-    "DESCRIPTION": "Global naming conventions and templating parameters for summary IDS"
+    "DESCRIPTION": "Global naming conventions and templating parameters for summary IDS",
+    "NBI_POWER": [ "ANB_SS_SUM_POWER", "ANB_SW_SUM_POWER" ]
 }
