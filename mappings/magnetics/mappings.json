@@ -11,8 +11,81 @@
         "MAP_TYPE": "PLUGIN",
         "PLUGIN": "UDA",
         "ARGS": {
-            "signal": "AMC_PLASMA_CURRENT"
+            "signal": "AMC_PLASMA CURRENT"
         },
-        "SCALE": 1000
+        "SCALE": 1000.0
+    },
+    "flux_loop": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 46
+    },
+    "flux_loop[#]/name": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(flux_loop_names, indices.0) }}",
+        "COMMENT": "Use the index of the flux_loop_names array"
+    },
+    "flux_loop[#]/identifier": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ indices.0 }}"
+    },
+    "flux_loop[#]/position": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ length(phi_coords) }}"
+    },
+    "flux_loop[#]/position[#]/r": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(flux_loop_r, indices.0 )}}"
+    },
+    "flux_loop[#]/position[#]/z": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(flux_loop_z, indices.0 )}}"
+    },
+    "flux_loop[#]/position[#]/phi": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(phi_coord, indices.1) }}"
+    },
+    "flux_loop[#]/flux": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "amb_fl/{{ at(flux_loop_names, indices.0) }}"
+        },
+        "SCALE": -1.0
+    },
+    "bpol_probe": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ length(bpol_probe_names) }}"
+    },
+    "bpol_probe[#]/name": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(bpol_probe_names, indices.0) }}"
+    },
+    "bpol_probe[#]/identifier": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ indices.0 }}"
+    },
+    "bpol_probe[#]/position": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 1
+    },
+    "bpol_probe[#]/position[#]/r": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(bpol_probe_r, indices.0) }}"
+    },
+    "bpol_probe[#]/position[#]/z": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(bpol_probe_z, indices.0) }}"
+    },
+    "bpol_probe[#]/position/phi": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0.0
+    },
+    "bpol_probe[#]/toroidal_angle": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0.0
+    },
+    "bpol_probe[#]/poloidal_angle": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": -1.5707964
     }
 }
