@@ -1,0 +1,12 @@
+ WALL/IDS_PROPERTIES/HOMOGENEOUS_TIME                                   | EFITMAGXML::put(value=2, type=int, unique=6447)
+ WALL/DESCRIPTION_2D/SHAPE_OF                                           | EFITMAGXML::put(value=1, type=int, unique=6448)
+ WALL/DESCRIPTION_2D/1/TYPE/INDEX                                       | EFITMAGXML::put(value=0, type=int, unique=6449)
+ WALL/DESCRIPTION_2D/1/TYPE/NAME                                        | EFITMAGXML2::get(xmlfile=limiter.xml, XPath=//limiter/@name, /string_1d, unique=6450)
+ WALL/DESCRIPTION_2D/1/TYPE/DESCRIPTION                                 | EFITMAGXML2::get(xmlfile=limiter.xml, XPath=//limiter/@name, /string_1d, unique=6451)
+ WALL/DESCRIPTION_2D/1/LIMITER/UNIT/SHAPE_OF                            | EFITMAGXML::put(value=1, type=int, unique=6452)
+ WALL/DESCRIPTION_2D/1/LIMITER/UNIT/1/CLOSED                            | EFITMAGXML::put(value=1, type=int, unique=6453)
+ WALL/DESCRIPTION_2D/1/LIMITER/UNIT/1/OUTLINE/R/SHAPE_OF                | EFITMAGXML::get(xmlfile=limiter.xml, XPath=//limiter/@rValues, /count, unique=6454)
+ WALL/DESCRIPTION_2D/1/LIMITER/UNIT/1/OUTLINE/Z/SHAPE_OF                | EFITMAGXML::get(xmlfile=limiter.xml, XPath=//limiter/@zValues, /count, unique=6455)
+ WALL/DESCRIPTION_2D/1/LIMITER/UNIT/1/OUTLINE/R                         | EFITMAGXML::get(xmlfile=limiter.xml, XPath=//limiter/@rValues, type=Double, unique=6456)
+ WALL/DESCRIPTION_2D/1/LIMITER/UNIT/1/OUTLINE/Z                         | EFITMAGXML::get(xmlfile=limiter.xml, XPath=//limiter/@zValues, type=Double, unique=6457)
+

@@ -1,0 +1,5 @@
+ TF/IDS_PROPERTIES/HOMOGENEOUS_TIME                                     | EFITMAGXML::put(value=0, type=int, unique=6442)
+ TF/R0                                                                  | EFITMAGXML::put(value=1, type=float, unique=6443)
+ TF/B_FIELD_TOR_VACUUM_R/DATA                                           | SOURCEX::get(signal="amc_tf current", /Data, format=MAST, datascaling=0.0048, unique=6444)
+ TF/B_FIELD_TOR_VACUUM_R/TIME                                           | SOURCEX::get(signal="amc_tf current", /Time, format=MAST, unique=6445)
+ TF/B_FIELD_TOR_VACUUM_R/DATA_ERROR_UPPER                               | SOURCEX::get(signal=amc_tf current,format=MAST, /Error, absoluteError=100.00000,relativeError=0.010000000, unique=6446)
