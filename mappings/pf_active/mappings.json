@@ -28,7 +28,7 @@
     {
         "MAP_TYPE": "VALUE",
         "VALUE": "{{ at(coil_r, indices.0) }}",
-        "comment": "need a temporary variable to double-index into 2D arrays"
+        "COMMENT": "need a temporary variable to double-index into 2D arrays"
     },
     "coil[#]/element":
     {
