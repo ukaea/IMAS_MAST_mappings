@@ -1,0 +1,182 @@
+{
+    "time_slice[#]/profiles_2d/shape_of": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "1"
+    },
+    "ids_properties/homogeneous_time": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 1
+    },
+    "time": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_PLASMA_CURR(C)"
+        }
+    },
+    "time_slice" : {
+        "MAP_TYPE": "DIMENSION",
+        "DIM_PROBE": "efm_plasma_curr(c)"
+    },
+    "time_slice[#]/global_quantities/ip": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "efm_plasma_curr(c)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/global_quantities/psi_axis": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "efm_psi_axis"
+        },
+        "SLICE": "[{{ indices.0 }}]",
+        "SCALE": -1.0
+    },
+    "time_slice[#]/global_quantities/psi_boundary": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "efm_psi_boundary"
+        },
+        "SLICE": "[{{ indices.0 }}]",
+        "SCALE": -1.0
+    },
+    "time_slice[#]/global_quantities/magnetic_axis/r": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "efm_magnetic_axis_r"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/global_quantities/magnetic_axis/z": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "efm_magnetic_axis_z"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/global_quantities/magnetic_axis/b_field_tor": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "efm_bphi_rmag"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/profiles_1d/f": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_F(PSI)_(C)"
+        },
+        "SLICE": "[:,{{ indices.0 }}]"
+    },
+    "time_slice[#]/profiles_1d/pressure": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_P(PSI)_(C)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/profiles_1d/dpressure_dpsi": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_PPRIME"
+        },
+        "SLICE": "[:,{{ indices.0 }}]",
+        "SCALE": -1.0
+    },
+    "time_slice[#]/profiles_1d/f_df_dpsi": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_FFPRIME"
+        },
+        "SLICE": "[:,{{ indices.0 }}]",
+        "SCALE": -1.0
+    },
+    "time_slice[#]/profiles_1d/q": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_Q(PSI)_(C)"
+        },
+        "SLICE": "[:,{{ indices.0 }}]",
+        "SCALE": -1.0
+    },
+    "time_slice[#]/boundary/minor_radius": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_MINOR_RADIUS"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/boundary/geometric_axis/r": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GEOM_AXIS_R(C)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/boundary/geometric_axis/z": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GEOM_AXIS_Z(C)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/profiles_2d/1/grid_type/name": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "Rectangular"
+    },
+    "time_slice[#]/profiles_2d/1/grid_type/index": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "1"
+    },
+    "time_slice[#]/profiles_2d/1/grid/dim1": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GRID(R)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/profiles_2d/1/grid/dim2": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GRID(Z)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/coordinate_system/grid_type/index": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "1"
+    },
+    
+}
+
+
+
+# ones i need help with and need to be checked:
+Excel is telling me to do things I don't understand :)
+EQUILIBRIUM/TIME_SLICE/1/PROFILES_1D/PSI              | SOURCE2::get(signal=EFM_P(PSI)
+EQUILIBRIUM/TIME_SLICE/1/PROFILES_1D/RHO_VOLUME_NORM  | SOURCE2::get(signal=EFM_VOLP_(C)
+EQUILIBRIUM/TIME_SLICE/1/BOUNDARY/OUTLINE/R           | SOURCE2::get(signal=EFM_LCFS(R)
+EQUILIBRIUM/TIME_SLICE/1/BOUNDARY/OUTLINE/Z           | SOURCE2::get(signal=EFM_LCFS(Z)
+EQUILIBRIUM/TIME_SLICE/1/PROFILES_2D/1/PSI            | SOURCE2::get(signal=EFM_PSI(R,Z)
+
+?? on stevens excel sheet
+EQUILIBRIUM/TIME_SLICE/1/COORDINATE_SYSTEM/GRID/DIM1  | SOURCE2::get(signal=EFM_GRID(R)
+EQUILIBRIUM/TIME_SLICE/1/COORDINATE_SYSTEM/GRID/DIM2  | SOURCE2::get(signal=EFM_GRID(Z)
+
