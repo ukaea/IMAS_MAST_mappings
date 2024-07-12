@@ -13,8 +13,7 @@ def normalise_imas(name: str) -> str:
     return name
 
 def parse_args_uda(name: str) -> dict:
-    
-
+    pass
 
 def main():
     parser = argparse.ArgumentParser(
@@ -27,6 +26,15 @@ def main():
         if '|' in line:
             imas_name, uda_name = line.split('|')
             imas_name = normalise_imas(imas_name)
+            # Set to store unique last two elements
+            unique_paths = set()
+            parts = imas_name.split('/')
+            last_two = tuple(parts[-2:])
+            if last_two not in unique_paths:
+                unique_paths.add(last_two)
+    
+    print(unique_paths)
+
             
 
 
