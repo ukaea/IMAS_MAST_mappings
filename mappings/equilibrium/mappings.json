@@ -163,20 +163,20 @@
         "MAP_TYPE": "VALUE",
         "VALUE": "1"
     },
-    
+    "time_slice[#]/coordinate_system/grid/dim1": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GRID(R)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/coordinate_systemgrid/dim2": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GRID(Z)"
+        },
+        "SLICE": "[{{ indices.0 }}]"
+    }
 }
-
-
-
-# ones i need help with and need to be checked:
-Excel is telling me to do things I don't understand :)
-EQUILIBRIUM/TIME_SLICE/1/PROFILES_1D/PSI              | SOURCE2::get(signal=EFM_P(PSI)
-EQUILIBRIUM/TIME_SLICE/1/PROFILES_1D/RHO_VOLUME_NORM  | SOURCE2::get(signal=EFM_VOLP_(C)
-EQUILIBRIUM/TIME_SLICE/1/BOUNDARY/OUTLINE/R           | SOURCE2::get(signal=EFM_LCFS(R)
-EQUILIBRIUM/TIME_SLICE/1/BOUNDARY/OUTLINE/Z           | SOURCE2::get(signal=EFM_LCFS(Z)
-EQUILIBRIUM/TIME_SLICE/1/PROFILES_2D/1/PSI            | SOURCE2::get(signal=EFM_PSI(R,Z)
-
-?? on stevens excel sheet
-EQUILIBRIUM/TIME_SLICE/1/COORDINATE_SYSTEM/GRID/DIM1  | SOURCE2::get(signal=EFM_GRID(R)
-EQUILIBRIUM/TIME_SLICE/1/COORDINATE_SYSTEM/GRID/DIM2  | SOURCE2::get(signal=EFM_GRID(Z)
-
