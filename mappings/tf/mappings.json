@@ -1,0 +1,25 @@
+{
+    "ids_properties/homogeneous_time": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0
+    },
+    "r0": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 1
+    },
+    "b_field_tor_vacuum_r/data": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AMC_TF CURRENT"
+        },
+        "SCALE": 0.0048
+    },
+    "b_field_tor_vacuum_r/time": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "AMC_TF CURRENT"
+        }
+    }
+}
