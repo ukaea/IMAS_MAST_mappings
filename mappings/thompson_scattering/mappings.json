@@ -1,0 +1,30 @@
+{
+    "ids_properties/homogeneous_time": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0
+    },
+    "channel" : {
+        "MAP_TYPE": "DIMENSION",
+        "DIM_PROBE": "ayc_ne"
+    },
+    "channel[#]/position/z": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0.015
+    },
+    "channel[#]/position/phi": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0
+    },
+    "channel[#]/delta_position/r": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "ayc_r"
+        },
+        "SCALE": "-{{ at(my_array, indices.0) }}"
+    },
+    "channel[#]/position/r": {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(my_array, indices.0) }}"
+    },
+    

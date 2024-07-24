@@ -178,5 +178,19 @@
             "signal": "EFM_GRID(Z)"
         },
         "SLICE": "[{{ indices.0 }}]"
+    },
+    "time_slice[#]/coordinate_system/r": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GRID(R)"
+        }
+    },
+    "time_slice[#]/coordinate_system/z": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_GRID(z)"
+        }
     }
 }
