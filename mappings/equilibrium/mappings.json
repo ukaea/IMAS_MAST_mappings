@@ -135,15 +135,15 @@
         },
         "SLICE": "[{{ indices.0 }}]"
     },
-    "time_slice[#]/profiles_2d[#]grid_type/name": {
+    "time_slice[#]/profiles_2d[#]/grid_type/name": {
         "MAP_TYPE": "VALUE",
         "VALUE": "Rectangular"
     },
-    "time_slice[#]/profiles_2d[#]grid_type/index": {
+    "time_slice[#]/profiles_2d[#]/grid_type/index": {
         "MAP_TYPE": "VALUE",
         "VALUE": "1"
     },
-    "time_slice[#]/profiles_2d[#]grid/dim1": {
+    "time_slice[#]/profiles_2d[#]/grid/dim1": {
         "MAP_TYPE": "PLUGIN",
         "PLUGIN": "UDA",
         "ARGS": {
@@ -151,7 +151,7 @@
         },
         "SLICE": "[{{ indices.0 }}]"
     },
-    "time_slice[#]/profiles_2d[#]grid/dim2": {
+    "time_slice[#]/profiles_2d[#]/grid/dim2": {
         "MAP_TYPE": "PLUGIN",
         "PLUGIN": "UDA",
         "ARGS": {
