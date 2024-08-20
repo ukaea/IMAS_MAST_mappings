@@ -14,51 +14,50 @@
         "MAP_TYPE": "VALUE",
         "VALUE": 1
     },
-    "channel[#]line_of_sight/first_point/r": {
+    "channel[#]/line_of_sight/first_point/r": {
         "MAP_TYPE": "VALUE",
         "VALUE": 1.6
     },
-    "channel[#]line_of_sight/first_point/z": {
+    "channel[#]/line_of_sight/first_point/z": {
         "MAP_TYPE": "VALUE",
         "VALUE": 0
     },
-    "channel[#]line_of_sight/first_point/phi": {
+    "channel[#]/line_of_sight/first_point/phi": {
         "MAP_TYPE": "VALUE",
         "VALUE": 0
     },
-    "channel[#]line_of_sight/second_point/r": {
+    "channel[#]/line_of_sight/second_point/r": {
         "MAP_TYPE": "VALUE",
         "VALUE": 1.6
     },
-    "channel[#]line_of_sight/second_point/z": {
+    "channel[#]/line_of_sight/second_point/z": {
         "MAP_TYPE": "VALUE",
         "VALUE": 0
     },
-    "channel[#]line_of_sight/second_point/phi": {
+    "channel[#]/line_of_sight/second_point/phi": {
         "MAP_TYPE": "VALUE",
         "VALUE": 2.58
     },
-    "channel[#]line_of_sight/third_point/r": {
+    "channel[#]/line_of_sight/third_point/r": {
         "MAP_TYPE": "VALUE",
         "VALUE": 1.6
     },
-    "channel[#]line_of_sight/third_point/z": {
+    "channel[#]/line_of_sight/third_point/z": {
         "MAP_TYPE": "VALUE",
         "VALUE": 0
     },
-    "channel[#]line_of_sight/third_point/phi": {
+    "channel[#]/line_of_sight/third_point/phi": {
         "MAP_TYPE": "VALUE",
         "VALUE": 0
     },
-    "channel[#]n_e_line/data": {
+    "channel[#]/n_e_line/data": {
         "MAP_TYPE": "PLUGIN",
         "PLUGIN": "UDA",
         "ARGS": {
             "signal": "ANE_DENSITY"
-        },
-        "SLICE": "[{{ indices.0 }}]"
+        }
     },
-    "channel[#]n_e_line/validity": {
+    "channel[#]/n_e_line/validity": {
         "MAP_TYPE": "PLUGIN",
         "PLUGIN": "UDA",
         "ARGS": {
