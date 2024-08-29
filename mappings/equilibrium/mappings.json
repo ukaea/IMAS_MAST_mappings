@@ -111,6 +111,30 @@
         "SLICE": "[:,{{ indices.0 }}]",
         "SCALE": -1.0
     },
+    "time_slice[#]/profiles_1d/rho_volume_norm": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "EXPR",
+        "PARAMETERS": {
+            "X": "_time_slice[#]/profiles_1d/vol",
+            "Y": "_time_slice[#]/profiles_1d/vol_LCFS"
+        },
+        "EXPR": "sqrt(X/Y)"
+    },
+    "_time_slice[#]/profiles_1d/vol": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_VOLP_(C)"
+        },
+        "SLICE": "[:,{{ indices.0 }}]",
+    },
+    "_time_slice[#]/profiles_1d/vol_LCFS": {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "EFM_PLASMA_VOLUME"
+        },
+    },
     "time_slice[#]/boundary/minor_radius": {
         "MAP_TYPE": "PLUGIN",
         "PLUGIN": "UDA",
