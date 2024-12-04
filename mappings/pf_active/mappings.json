@@ -1,0 +1,102 @@
+{
+    "ids_properties/homogeneous_time":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 0
+    },
+    "coil":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ length(coil_r) }}"
+    },
+    "coil[#]/name":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "???"
+    },
+    "coil[#]/id":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ indices.0 }}"
+    },
+    "coil[#]/identifier":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ indices.0 }}"
+    },
+    "_coil[#]/r_vals":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(coil_r, indices.0) }}",
+        "COMMENT": "need a temporary variable to double-index into 2D arrays"
+    },
+    "coil[#]/element":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ length(at(coil_r, indices.0)) }}"
+    },
+    "coil[#]/element[#]/geometry/geometry_type":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE": 2
+    },
+    "coil[#]/element[#]/geometry/rectangle/r":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE":"{{ at(at(coil_r, indices.0), indices.1) }}"
+    },
+    "coil[#]/element[#]/geometry/rectangle/z":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE":"{{ at(at(coil_z, indices.0), indices.1) }}"
+    },
+    "coil[#]/element[#]/geometry/rectangle/width":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE":"{{ at(at(coil_dr, indices.0), indices.1) }}"
+    },
+    "coil[#]/element[#]/geometry/rectangle/height":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE":"{{ at(at(coil_dz, indices.0), indices.1) }}"
+    },
+    "coil[#]/element[#]/turns_with_sign":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE":"{{ at(at(coil_turn_count, indices.0), indices.1) }}"
+    },
+    "supply":
+    {
+        "MAP_TYPE": "VALUE",
+        "VALUE":"{{ length(supply_current_signal_names) }}"
+    },
+    "supply[#]/current":
+    {
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "{{ at(supply_current_signal_names, indices.0) }}"
+        },
+        "SCALE": "{{ at(supply_current_scale_factors, indices.0) }}"
+    },
+    "circuit":{
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ length(circuit_names) }}"
+    },
+    "circuit[#]/name":{
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ at(circuit_names, indices.0) }}"
+    },
+    "circuit[#]/identifier":{
+        "MAP_TYPE": "VALUE",
+        "VALUE": "{{ indices.0 }}"
+    },
+    "circuit[#]/current":{
+        "MAP_TYPE": "PLUGIN",
+        "PLUGIN": "UDA",
+        "ARGS": {
+            "signal": "{{ at(supply_current_signal_names, indices.0) }}"
+        },
+        "SCALE": "{{ at(supply_current_scale_factor, indices.0) }}"
+    }
+}
