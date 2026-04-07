@@ -1,0 +1,23 @@
+{
+    "X_POINT_R": [
+        "EFM_XPOINT1_R(C)",
+        "EFM_XPOINT2_R(C)"
+    ],
+    "X_POINT_Z": [
+        "EFM_XPOINT1_Z(C)",
+        "EFM_XPOINT2_Z(C)"
+    ],
+    "_COMMENT_STRIKE_POINTS": "Strike point signals not confirmed for MAST — prefixed _ until verified in UDA",
+    "_STRIKE_POINT_R": [
+        "EFM_XPOINT1_INNERSTRIKEPOINTR",
+        "EFM_XPOINT1_OUTERSTRIKEPOINTR",
+        "EFM_XPOINT2_INNERSTRIKEPOINTR",
+        "EFM_XPOINT2_OUTERSTRIKEPOINTR"
+    ],
+    "_STRIKE_POINT_Z": [
+        "EFM_XPOINT1_INNERSTRIKEPOINTZ",
+        "EFM_XPOINT1_OUTERSTRIKEPOINTZ",
+        "EFM_XPOINT2_INNERSTRIKEPOINTZ",
+        "EFM_XPOINT2_OUTERSTRIKEPOINTZ"
+    ]
+}
