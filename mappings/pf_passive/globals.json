@@ -1,0 +1,71 @@
+{
+  "DESCRIPTION": "Global naming conventions and templating parameters for MAST pf_passive IDS",
+  "PASSIVE_NAME": "{{ LOOPS[#0].NAME }}",
+  "PASSIVE_CURRENT": "{% if existsIn(at(LOOPS, indices.0), \"CURRENT\") %}{{ at(LOOPS, indices.0).CURRENT }}{% else %}void{% endif %}",
+  "_COMMENT_LOOPS": "MAST passive structure names. Geometry is fetched from the MAST geometry service via /passive/efit/<NAME>. Structures without a CURRENT entry have no associated AMC measurement. This list is derived from the mast.yml pf_passive section and may be incomplete — verify against the full MAST passive structure catalogue.",
+  "LOOPS": [
+    {
+      "NAME": "botcol"
+    },
+    {
+      "NAME": "endcrown_l"
+    },
+    {
+      "NAME": "endcrown_u"
+    },
+    {
+      "NAME": "incon"
+    },
+    {
+      "NAME": "lhorw"
+    },
+    {
+      "NAME": "uhorw"
+    },
+    {
+      "NAME": "lverw"
+    },
+    {
+      "NAME": "uverw"
+    },
+    {
+      "NAME": "p2_case_lower"
+    },
+    {
+      "NAME": "p2_case_upper"
+    },
+    {
+      "NAME": "p3_case_lower"
+    },
+    {
+      "NAME": "p3_case_upper"
+    },
+    {
+      "NAME": "p4_case_lower",
+      "CURRENT": "AMC_CASECURR_P4L"
+    },
+    {
+      "NAME": "p4_case_upper",
+      "CURRENT": "AMC_CASECURR_P4U"
+    },
+    {
+      "NAME": "p5_case_lower",
+      "CURRENT": "AMC_CASECURR_P5L"
+    },
+    {
+      "NAME": "p5_case_upper",
+      "CURRENT": "AMC_CASECURR_P5U"
+    },
+    {
+      "NAME": "p6_case_lower",
+      "CURRENT": "AMC_CASECURR_P6L"
+    },
+    {
+      "NAME": "p6_case_upper",
+      "CURRENT": "AMC_CASECURR_P6U"
+    },
+    {
+      "NAME": "vessel"
+    }
+  ]
+}
