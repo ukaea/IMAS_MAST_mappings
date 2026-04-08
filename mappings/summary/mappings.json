@@ -7,7 +7,8 @@
         "map_type": "DATA_SOURCE",
         "data_source": "UDA",
         "args": {
-            "signal": "AMC_PLASMA CURRENT"
+            "signal": "AMC_PLASMA CURRENT",
+            "time": true
         }
     },
     "global_quantities/b0/value": {
@@ -80,6 +81,8 @@
         "map_type": "VALUE",
         "value": "ESM_H_ITER98PBY2"
     },
+
+    "_COMMENT_global_quantities_power_ohm": "TODO_INTERP: resample ESM_PPHIX onto summary.time.",
     "global_quantities/power_ohm/value": {
         "map_type": "DATA_SOURCE",
         "data_source": "UDA",
