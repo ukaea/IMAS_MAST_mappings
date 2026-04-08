@@ -1,0 +1,9 @@
+{
+    "metadata": {
+        "experiment": "mast",
+        "author": "Larisa, Claude, and the gang",
+        "version": "0.1.0"
+    },
+    "partitions": [],
+    "groups": ["magnetics", "summary"]
+}
