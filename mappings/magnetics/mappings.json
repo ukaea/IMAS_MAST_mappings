@@ -7,7 +7,8 @@
         "map_type": "DATA_SOURCE",
         "data_source": "UDA",
         "args": {
-            "signal": "AMC_PLASMA CURRENT"
+            "signal": "AMC_PLASMA CURRENT",
+            "time": true
         }
     },
 
@@ -44,13 +45,17 @@
         "map_type": "VALUE",
         "value": "{{ FL_NAME }}"
     },
+    "flux_loop[#]/identifier": {
+        "map_type": "VALUE",
+        "value": "FLUX_LOOP_{{ #0 + 1 }}"
+    },
     "flux_loop[#]/type/name": {
         "map_type": "VALUE",
-        "value": "flux"
+        "value": "{{ FL_TYPE }}"
     },
     "flux_loop[#]/type/index": {
         "map_type": "VALUE",
-        "value": 1
+        "value": "{{ FL_TYPE_MAP[FLUX_LOOPS[#0].TYPE] }}"
     },
     "flux_loop[#]/position/r": {
         "map_type": "DATA_SOURCE",
@@ -101,6 +106,10 @@
     "b_field_pol_probe[#]/name": {
         "map_type": "VALUE",
         "value": "{{ BPOL_NAME }}"
+    },
+    "b_field_pol_probe[#]/identifier": {
+        "map_type": "VALUE",
+        "value": "BPOL_PROBE_{{ #0 + 1 }}"
     },
     "b_field_pol_probe[#]/type/name": {
         "map_type": "VALUE",
@@ -171,6 +180,14 @@
         },
         "EXPR": "mod(2*PI-atan2(Z,R), 2*PI)"
     },
+    "b_field_pol_probe[#]/toroidal_angle": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "{{ BPOL_NAME }}",
+            "key": "orientation.unit_vector.phi"
+        }
+    },
     "_temp/pickup[#]/unit_vector/r": {
         "map_type": "DATA_SOURCE",
         "data_source": "GEOMETRY",
@@ -185,14 +202,6 @@
         "args": {
             "signal": "{{ BPOL_NAME }}",
             "key": "orientation.unit_vector.z"
-        }
-    },
-    "b_field_pol_probe[#]/toroidal_angle": {
-        "map_type": "DATA_SOURCE",
-        "data_source": "GEOMETRY",
-        "args": {
-            "signal": "{{ BPOL_NAME }}",
-            "key": "orientation.unit_vector.phi"
         }
     },
     "b_field_pol_probe[#]/field/data": {
@@ -211,5 +220,69 @@
         }
     },
 
-    "_COMMENT_b_field_phi_probe": "MAST has no dedicated toroidal field probes. b_field_phi_probe is not mapped."
+    "_COMMENT_b_field_phi_probe": "MAST has no T-coil array. The 12 outer saddle coils (ASM_SAD/M01-M12) are categorised here under b_field_phi_probe per mast.yml. Names in BPHI_PROBES already include the ASM_SAD/ prefix and are usable directly as UDA signals.",
+    "b_field_phi_probe": {
+        "map_type": "VALUE",
+        "value": "{{ length(BPHI_PROBES) }}"
+    },
+    "b_field_phi_probe[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ BPHI_NAME }}"
+    },
+    "b_field_phi_probe[#]/identifier": {
+        "map_type": "VALUE",
+        "value": "BPHI_PROBE_{{ #0 + 1 }}"
+    },
+    "b_field_phi_probe[#]/type/name": {
+        "map_type": "VALUE",
+        "value": "saddle"
+    },
+    "b_field_phi_probe[#]/type/index": {
+        "map_type": "VALUE",
+        "value": 5
+    },
+    "b_field_phi_probe[#]/type/description": {
+        "map_type": "VALUE",
+        "value": "Outer vessel saddle coil"
+    },
+    "b_field_phi_probe[#]/position/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "{{ BPHI_NAME }}",
+            "key": "coordinate.r"
+        }
+    },
+    "b_field_phi_probe[#]/position/z": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "{{ BPHI_NAME }}",
+            "key": "coordinate.z"
+        }
+    },
+    "b_field_phi_probe[#]/position/phi": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "{{ BPHI_NAME }}",
+            "key": "coordinate.phi"
+        },
+        "scale": "{{ DEG2RAD }}"
+    },
+    "b_field_phi_probe[#]/field/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ BPHI_NAME }}"
+        }
+    },
+    "b_field_phi_probe[#]/field/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ BPHI_NAME }}",
+            "time": true
+        }
+    }
 }
