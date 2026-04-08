@@ -1,71 +1,78 @@
 {
-  "DESCRIPTION": "Global naming conventions and templating parameters for MAST pf_passive IDS",
+  "DESCRIPTION": "Global naming conventions and templating parameters for the MAST pf_passive IDS. LOOPS lists every passive structure derived from mast.yml's pf_passive section. NAME is the short identifier; STEM is the full geometry path used by the GEOMETRY data source (matches mast.yml `stem:` fields verbatim).",
+
   "PASSIVE_NAME": "{{ LOOPS[#0].NAME }}",
-  "PASSIVE_CURRENT": "{% if existsIn(at(LOOPS, indices.0), \"CURRENT\") %}{{ at(LOOPS, indices.0).CURRENT }}{% else %}void{% endif %}",
-  "_COMMENT_LOOPS": "MAST passive structure names. Geometry is fetched from the MAST geometry service via /passive/efit/<NAME>. Structures without a CURRENT entry have no associated AMC measurement. This list is derived from the mast.yml pf_passive section and may be incomplete — verify against the full MAST passive structure catalogue.",
+  "PASSIVE_STEM": "{{ LOOPS[#0].STEM }}",
+
+  "_COMMENT_LOOPS": "17 MAST passive structures from mast.yml. MAST has no per-structure current measurement (mast.yml's coil_current is for pf_active, not pf_passive), so no CURRENT field is provided. coil_cases is a single bundled entry holding all PF coil cases together — mast.yml does not split it per coil.",
   "LOOPS": [
     {
-      "NAME": "botcol"
+      "NAME": "botcol",
+      "STEM": "centrecolumn/botcol"
     },
     {
-      "NAME": "endcrown_l"
+      "NAME": "topcol",
+      "STEM": "centrecolumn/topcol"
     },
     {
-      "NAME": "endcrown_u"
+      "NAME": "endcrown_l",
+      "STEM": "centrecolumn/endcrown_l"
     },
     {
-      "NAME": "incon"
+      "NAME": "endcrown_u",
+      "STEM": "centrecolumn/endcrown_u"
     },
     {
-      "NAME": "lhorw"
+      "NAME": "incon",
+      "STEM": "centrecolumn/incon"
     },
     {
-      "NAME": "uhorw"
+      "NAME": "ring",
+      "STEM": "centrecolumn/ring"
     },
     {
-      "NAME": "lverw"
+      "NAME": "rodgr",
+      "STEM": "centrecolumn/rodgr"
     },
     {
-      "NAME": "uverw"
+      "NAME": "p2_inner_upper",
+      "STEM": "p2/p2_inner_upper"
     },
     {
-      "NAME": "p2_case_lower"
+      "NAME": "p2larm",
+      "STEM": "p2/p2larm"
     },
     {
-      "NAME": "p2_case_upper"
+      "NAME": "p2uarm",
+      "STEM": "p2/p2uarm"
     },
     {
-      "NAME": "p3_case_lower"
+      "NAME": "p2ldivpl",
+      "STEM": "p2/p2ldivpl"
     },
     {
-      "NAME": "p3_case_upper"
+      "NAME": "p2udivpl",
+      "STEM": "p2/p2udivpl"
     },
     {
-      "NAME": "p4_case_lower",
-      "CURRENT": "AMC_CASECURR_P4L"
+      "NAME": "lhorw",
+      "STEM": "vessel/lhorw"
     },
     {
-      "NAME": "p4_case_upper",
-      "CURRENT": "AMC_CASECURR_P4U"
+      "NAME": "uhorw",
+      "STEM": "vessel/uhorw"
     },
     {
-      "NAME": "p5_case_lower",
-      "CURRENT": "AMC_CASECURR_P5L"
+      "NAME": "vertw",
+      "STEM": "vessel/vertw"
     },
     {
-      "NAME": "p5_case_upper",
-      "CURRENT": "AMC_CASECURR_P5U"
+      "NAME": "mid",
+      "STEM": "vessel/mid"
     },
     {
-      "NAME": "p6_case_lower",
-      "CURRENT": "AMC_CASECURR_P6L"
-    },
-    {
-      "NAME": "p6_case_upper",
-      "CURRENT": "AMC_CASECURR_P6U"
-    },
-    {
-      "NAME": "vessel"
+      "NAME": "coil_cases",
+      "STEM": "cases"
     }
   ]
 }
