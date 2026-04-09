@@ -1,0 +1,106 @@
+{
+    "ids_properties/homogeneous_time": {
+        "map_type": "VALUE",
+        "value": 0
+    },
+    "loop": {
+        "map_type": "VALUE",
+        "value": "{{ length(LOOPS) }}"
+    },
+    "loop[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ PASSIVE_NAME }}"
+    },
+    "loop[#]/resistance": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "resistance"
+        }
+    },
+    "loop[#]/resistivity": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "resistivity"
+        }
+    },    
+    "loop[#]/element": {
+        "map_type": "DIMENSION",
+        "DIM_PROBE": "_loop[#]/element[#]/n_elements"
+    },
+    "_loop[#]/element[#]/n_elements": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "centreR"
+        }
+    },
+    "loop[#]/element[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ PASSIVE_NAME }}_E{{ #1 + 1 }}"
+    },
+    "loop[#]/element[#]/geometry/geometry_type": {
+        "map_type": "VALUE",
+        "value": 3
+    },
+    "loop[#]/element[#]/geometry/oblique/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "centreR",
+            "element": "{{ #1 }}"
+        }
+    },
+    "loop[#]/element[#]/geometry/oblique/z": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "centreZ",
+            "element": "{{ #1 }}"
+        }
+    },
+    "loop[#]/element[#]/geometry/oblique/length_alpha": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "dR",
+            "element": "{{ #1 }}"
+        }
+    },
+    "loop[#]/element[#]/geometry/oblique/length_beta": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "dZ",
+            "element": "{{ #1 }}"
+        }
+    },
+    "loop[#]/element[#]/geometry/oblique/alpha": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "shapeAngle1",
+            "element": "{{ #1 }}"
+        },
+        "scale": "{{ DEG2RAD }}"
+    },
+    "loop[#]/element[#]/geometry/oblique/beta": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/passive/efit/{{ PASSIVE_STEM }}",
+            "key": "shapeAngle2",
+            "element": "{{ #1 }}"
+        },
+        "scale": "{{ DEG2RAD }}"
+    }
+}

@@ -1,0 +1,131 @@
+{
+    "ids_properties/homogeneous_time": {
+        "map_type": "VALUE",
+        "value": 0
+    },
+
+    "coil": "{{ length(PF_COILS) }}",
+    "coil[#]/name": "{{ PF_NAME }}",
+    "coil[#]/identifier": "PF_COIL_{{ #0 + 1 }}",
+    "coil[#]/current/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "/AMC/ROGEXT/{{ PF_NAME }}"
+        },
+        "scale": "{{ UNIT_SF }}"
+    },
+    "coil[#]/current/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "/AMC/ROGEXT/{{ PF_NAME }}",
+            "time": true
+        }
+    },
+    "coil[#]/function": 1,
+    "coil[#]/function[#]/index": "{{ FUNCTION }}",
+    "coil[#]/element": {
+        "map_type": "DIMENSION",
+        "dim_probe": "_coil[#]/element_size"
+    },
+    "_coil[#]/element_size": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_NAME }}",
+            "key": "geom_elements.dR"
+        }
+    },
+    "coil[#]/element[#]/identifier": "C{{ #0 + 1 }}_E{{ #1 + 1 }}",
+    "coil[#]/element[#]/turns_with_sign": 1.0,
+    "coil[#]/element[#]/geometry/geometry_type": 2,
+    "coil[#]/element[#]/geometry/rectangle/width": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_NAME }}",
+            "key": "geom_elements.dR"
+        },
+        "slice": "[{{ #1 }}]"
+    },
+    "coil[#]/element[#]/geometry/rectangle/height": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_NAME }}",
+            "key": "geom_elements.dZ"
+        },
+        "slice": "[{{ #1 }}]"
+    },
+    "coil[#]/element[#]/geometry/rectangle/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_NAME }}",
+            "key": "geom_elements.centreR"
+        },
+        "slice": "[{{ #1 }}]"
+    },
+    "coil[#]/element[#]/geometry/rectangle/z": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_NAME }}",
+            "key": "geom_elements.centreZ"
+        },
+        "slice": "[{{ #1 }}]"
+    },
+    "coil[#]/element[#]/area": {
+        "map_type": "EXPR",
+        "parameters": {
+            "WIDTH": "coil[#]/element[#]/geometry/rectangle/width",
+            "HEIGHT": "coil[#]/element[#]/geometry/rectangle/height"
+        },
+        "expr": "WIDTH * HEIGHT"
+    },
+
+    "circuit": "{{ length(PF_SUPPLIES) }}",
+    "circuit[#]/name": "CIRCUIT_{{ PF_PS_NAME }}",
+    "circuit[#]/identifier": "CIRCUIT_{{ #0 + 1 }}",
+    "circuit[#]/connections": {
+        "map_type": "VALUE",
+        "value": "{{ CONNECTIONS[PF_PS_NAME] }}"
+    },
+
+    "supply": "{{ length(PF_SUPPLIES) }}",
+    "supply[#]/name": "{{ PF_PS_NAME }}",
+    "supply[#]/identifier": "SUPPLY_{{ #0 + 1 }}",
+    "supply[#]/current/data": {
+        "COMMENT": "EFPS has no Rogowski measurement — current signal is void for that entry",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SUPPLY_CURRENT_NAME }}"
+        },
+        "scale": "{{ UNIT_SF }}"
+    },
+    "supply[#]/current/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SUPPLY_CURRENT_NAME }}",
+            "time": true
+        }
+    },
+    "supply[#]/voltage/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SUPPLY_VOLTAGE_NAME }}"
+        }
+    },
+    "supply[#]/voltage/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SUPPLY_VOLTAGE_NAME }}",
+            "time": true
+        }
+    }
+}

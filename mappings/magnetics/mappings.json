@@ -1,91 +1,138 @@
 {
     "ids_properties/homogeneous_time": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": 0
+        "map_type": "VALUE",
+        "value": 0
     },
-    "ip": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": 1
+
+    "coil": {
+        "map_type": "VALUE",
+        "value": "{{ length(PF_COILS) }}"
     },
-    "ip[#]": {
-        "MAP_TYPE": "PLUGIN",
-        "PLUGIN": "UDA",
-        "ARGS": {
-            "signal": "AMC_PLASMA CURRENT"
+    "coil[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ PF_NAME }}"
+    },
+    "coil[#]/identifier": {
+        "map_type": "VALUE",
+        "value": "PF_COIL_{{ #0 + 1 }}"
+    },
+    "coil[#]/current/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ PF_CURRENT_NAME }}"
         },
-        "SCALE": 1000.0
+        "scale": "{{ PF_CURRENT_SCALE }}"
     },
-    "flux_loop": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ length(flux_loop_names) }}"
+    "coil[#]/current/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ PF_CURRENT_NAME }}",
+            "time": true
+        }
     },
-    "flux_loop[#]/name": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(flux_loop_names, indices.0) }}",
-        "COMMENT": "Use the index of the flux_loop_names array"
+    "coil[#]/function": {
+        "map_type": "VALUE",
+        "value": 1
     },
-    "flux_loop[#]/identifier": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ indices.0 }}"
+    "coil[#]/function[#]/index": {
+        "map_type": "VALUE",
+        "value": "{{ FUNCTION }}"
     },
-    "flux_loop[#]/position": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ length(phi_coord) }}"
+    "coil[#]/element": {
+        "map_type": "DIMENSION",
+        "DIM_PROBE": "_coil[#]/element_size"
     },
-    "flux_loop[#]/position[#]/r": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(flux_loop_r, indices.0 )}}"
+    "_coil[#]/element_size": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_STEM }}",
+            "key": "centreR"
+        }
     },
-    "flux_loop[#]/position[#]/z": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(flux_loop_z, indices.0 )}}"
+    "coil[#]/element[#]/identifier": {
+        "map_type": "VALUE",
+        "value": "C{{ #0 + 1 }}_E{{ #1 + 1 }}"
     },
-    "flux_loop[#]/position[#]/phi": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(phi_coord, indices.1) }}"
+    "coil[#]/element[#]/turns_with_sign": {
+        "map_type": "VALUE",
+        "value": 1.0
     },
-    "flux_loop[#]/flux": {
-        "MAP_TYPE": "PLUGIN",
-        "PLUGIN": "UDA",
-        "ARGS": {
-            "signal": "amb_fl/{{ at(flux_loop_names, indices.0) }}"
+    "coil[#]/element[#]/geometry/geometry_type": {
+        "map_type": "VALUE",
+        "value": 2
+    },
+    "coil[#]/element[#]/geometry/rectangle/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_STEM }}",
+            "key": "centreR"
         },
-        "SCALE": -1.0
+        "slice": "[{{ #1 }}]"
     },
-    "bpol_probe": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ length(bpol_probe_names) }}"
+    "coil[#]/element[#]/geometry/rectangle/z": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_STEM }}",
+            "key": "centreZ"
+        },
+        "slice": "[{{ #1 }}]"
     },
-    "bpol_probe[#]/name": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(bpol_probe_names, indices.0) }}"
+    "coil[#]/element[#]/geometry/rectangle/width": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_STEM }}",
+            "key": "dR"
+        },
+        "slice": "[{{ #1 }}]"
     },
-    "bpol_probe[#]/identifier": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ indices.0 }}"
+    "coil[#]/element[#]/geometry/rectangle/height": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/magnetics/pfcoil/{{ PF_GEOM_STEM }}",
+            "key": "dZ"
+        },
+        "slice": "[{{ #1 }}]"
     },
-    "bpol_probe[#]/position": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": 1
+    "coil[#]/element[#]/area": {
+        "map_type": "EXPR",
+        "PARAMETERS": {
+            "WIDTH": "coil[#]/element[#]/geometry/rectangle/width",
+            "HEIGHT": "coil[#]/element[#]/geometry/rectangle/height"
+        },
+        "EXPR": "WIDTH * HEIGHT"
     },
-    "bpol_probe[#]/position[#]/r": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(bpol_probe_r, indices.0) }}"
+    "supply": {
+        "map_type": "VALUE",
+        "value": "{{ length(PF_SUPPLIES) }}"
     },
-    "bpol_probe[#]/position[#]/z": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": "{{ at(bpol_probe_z, indices.0) }}"
+    "supply[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ PF_PS_NAME }}"
     },
-    "bpol_probe[#]/position/phi": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": 0.0
+    "supply[#]/identifier": {
+        "map_type": "VALUE",
+        "value": "SUPPLY_{{ #0 + 1 }}"
     },
-    "bpol_probe[#]/toroidal_angle": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": 0.0
+    "supply[#]/voltage/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SUPPLY_VOLTAGE_NAME }}"
+        }
     },
-    "bpol_probe[#]/poloidal_angle": {
-        "MAP_TYPE": "VALUE",
-        "VALUE": -1.5707964
+    "supply[#]/voltage/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SUPPLY_VOLTAGE_NAME }}",
+            "time": true
+        }
     }
 }

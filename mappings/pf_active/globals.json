@@ -1,0 +1,107 @@
+{
+  "DESCRIPTION": "Global naming conventions and templating parameters for the MAST pf_active IDS. Built from mast.yml's pf_active section. MAST has a fundamentally different coil set from MAST-U: no D1-D7/DP/PX/PC coils, instead a solenoid + P2(inner/outer)(upper/lower) + P3/P4/P5/P6(upper/lower) layout.",
+  "PF_NAME": "{{ PF_COILS[#0].COIL_NAME }}",
+  "PF_GEOM_STEM": "{{ PF_COILS[#0].GEOM_STEM }}",
+  "PF_CURRENT_NAME": "{% if existsIn(at(PF_COILS, indices.0), \"CURRENT\") %}{{ at(PF_COILS, indices.0).CURRENT }}{% else %}void{% endif %}",
+  "PF_CURRENT_SCALE": "{% if existsIn(at(PF_COILS, indices.0), \"CURRENT_SCALE\") %}{{ at(PF_COILS, indices.0).CURRENT_SCALE }}{% else %}1.0{% endif %}",
+  "FUNCTION": "{{ PF_COILS[#0].TYPE }}",
+  "PF_PS_NAME": "{{ PF_SUPPLIES[#0].PS_NAME }}",
+  "SUPPLY_VOLTAGE_NAME": "{{ PF_SUPPLIES[#0].VOLTAGE }}",
+  "PF_COILS": [
+    {
+      "COIL_NAME": "SOL",
+      "TYPE": 0,
+      "GEOM_STEM": "sol/sol",
+      "CURRENT": "AMC_SOL CURRENT",
+      "CURRENT_SCALE": 0.5
+    },
+    {
+      "COIL_NAME": "P2_INNER_UPPER",
+      "TYPE": 1,
+      "GEOM_STEM": "p2/p2_inner_upper",
+      "CURRENT": "AMC_P2IU FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P2_INNER_LOWER",
+      "TYPE": 1,
+      "GEOM_STEM": "p2/p2_inner_lower",
+      "CURRENT": "AMC_P2IL FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P2_OUTER_UPPER",
+      "TYPE": 1,
+      "GEOM_STEM": "p2/p2_outer_upper",
+      "CURRENT": "AMC_P2OU FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P2_OUTER_LOWER",
+      "TYPE": 1,
+      "GEOM_STEM": "p2/p2_outer_lower",
+      "CURRENT": "AMC_P2OL FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P3_UPPER",
+      "TYPE": 1,
+      "GEOM_STEM": "p3/p3_upper",
+      "CURRENT": "AMC_P3U FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P3_LOWER",
+      "TYPE": 1,
+      "GEOM_STEM": "p3/p3_lower",
+      "CURRENT": "AMC_P3L FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P4_UPPER",
+      "TYPE": 1,
+      "GEOM_STEM": "p4/p4_upper",
+      "CURRENT": "AMC_P4U FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P4_LOWER",
+      "TYPE": 1,
+      "GEOM_STEM": "p4/p4_lower",
+      "CURRENT": "AMC_P4L FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P5_UPPER",
+      "TYPE": 1,
+      "GEOM_STEM": "p5/p5_upper",
+      "CURRENT": "AMC_P5U FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P5_LOWER",
+      "TYPE": 1,
+      "GEOM_STEM": "p5/p5_lower",
+      "CURRENT": "AMC_P5L FEED CURRENT"
+    },
+    {
+      "COIL_NAME": "P6_UPPER",
+      "TYPE": 1,
+      "GEOM_STEM": "p6/p6_upper"
+    },
+    {
+      "COIL_NAME": "P6_LOWER",
+      "TYPE": 1,
+      "GEOM_STEM": "p6/p6_lower"
+    }
+  ],
+  "PF_SUPPLIES": [
+    {
+      "PS_NAME": "P1PS",
+      "VOLTAGE": "/xdc/pf/f/p1"
+    },
+    {
+      "PS_NAME": "P2PS",
+      "VOLTAGE": "/xdc/pf/f/p2"
+    },
+    {
+      "PS_NAME": "P4PS",
+      "VOLTAGE": "/xdc/pf/f/p4"
+    },
+    {
+      "PS_NAME": "P5PS",
+      "VOLTAGE": "/xdc/pf/f/p5"
+    }
+  ]
+}
