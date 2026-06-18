@@ -1,0 +1,12 @@
+{
+    "DESCRIPTION": "Global naming conventions for MAST thomson_scattering IDS. MAST's HRTS system changed signal naming at shot 22832: AYC_* for shots 22832-30471, ATM_* for shots 1-22831. The JSON plugin cannot apply shot-range logic at the mapping level — the AYC signals are mapped here as primary. For older shots (< 22832), substitute ATM_TE, ATM_NE, ATM_PE, ATM_R at the ingestion layer.",
+
+    "_COMMENT_signals": "AYC = HRTS primary (shots 22832+). ATM = HRTS legacy (shots 1-22831). The radial position signal AYC_R gives per-channel R positions and is used to drive the channel count.",
+
+    "TE_SIGNAL": "AYC_TE",
+    "NE_SIGNAL": "AYC_NE",
+    "PE_SIGNAL": "AYC_PE",
+    "R_SIGNAL":  "AYC_R",
+    "TE_CORE_SIGNAL": "AYC_TE_CORE",
+    "NE_CORE_SIGNAL": "AYC_NE_CORE"
+}

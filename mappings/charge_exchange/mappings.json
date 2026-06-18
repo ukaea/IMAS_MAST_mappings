@@ -1,0 +1,79 @@
+{
+    "ids_properties/homogeneous_time": 0,
+
+    "time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ TI_SIGNAL }}"
+        }
+    },
+
+    "_COMMENT_channel_count": "Channel count driven by the number of radial positions in ACT_SS_MAJOR_RADIUS.",
+    "channel": {
+        "map_type": "DIMENSION",
+        "DIM_PROBE": "_channel_r_positions"
+    },
+    "_channel_r_positions": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ R_SIGNAL }}"
+        }
+    },
+
+    "channel[#]/name": {
+        "map_type": "VALUE",
+        "value": "CXRS_CH{{ #0 + 1 }}"
+    },
+    "channel[#]/position/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ R_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}]"
+    },
+
+    "channel[#]/ion": {
+        "map_type": "VALUE",
+        "value": 1
+    },
+
+    "channel[#]/ion[#]/t_i/data": {
+        "COMMENT": "ACT_SS_TEMPERATURE is 2D (major_radius x time). Slice to per-channel time series.",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ TI_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}][:]"
+    },
+    "channel[#]/ion[#]/t_i/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ TI_SIGNAL }}",
+            "time": true
+        }
+    },
+
+    "_COMMENT_velocity": "DD path is channel/ion/velocity_phi, not channel/ion/velocity/toroidal (which does not exist in the DD).",
+    "channel[#]/ion[#]/velocity_phi/data": {
+        "COMMENT": "ACT_SS_VELOCITY is 2D (major_radius x time).",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ VI_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}][:]"
+    },
+    "channel[#]/ion[#]/velocity_phi/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ VI_SIGNAL }}",
+            "time": true
+        }
+    }
+}

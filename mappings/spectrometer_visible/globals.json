@@ -1,0 +1,50 @@
+{
+    "DESCRIPTION": "Global naming conventions for MAST spectrometer_visible IDS.",
+    "DALPHA_NAME": "{{ DALPHA_CHANNELS[#0].NAME }}",
+    "DALPHA_SIGNAL": "{{ DALPHA_CHANNELS[#0].SIGNAL }}",
+    "BES_NAME": "{{ BES_CHANNELS[#0].NAME }}",
+    "BES_SIGNAL": "{{ BES_CHANNELS[#0].SIGNAL }}",
+
+    "_COMMENT_DALPHA": "D-alpha filter spectrometer channels (XIM diagnostic). Three lines of sight: HM10/R (midplane radial), HM10/T (midplane tangential), HU10/T (upper tangential).",
+    "DALPHA_CHANNELS": [
+        { "NAME": "XIM_DA_HM10_R", "SIGNAL": "XIM_DA/HM10/R" },
+        { "NAME": "XIM_DA_HM10_T", "SIGNAL": "XIM_DA/HM10/T" },
+        { "NAME": "XIM_DA_HU10_T", "SIGNAL": "XIM_DA/HU10/T" }
+    ],
+
+    "_COMMENT_BES": "Beam emission spectroscopy channels (XBT diagnostic), 32 channels.",
+    "BES_CHANNELS": [
+        { "NAME": "BES_CH01", "SIGNAL": "xbt/channel01" },
+        { "NAME": "BES_CH02", "SIGNAL": "xbt/channel02" },
+        { "NAME": "BES_CH03", "SIGNAL": "xbt/channel03" },
+        { "NAME": "BES_CH04", "SIGNAL": "xbt/channel04" },
+        { "NAME": "BES_CH05", "SIGNAL": "xbt/channel05" },
+        { "NAME": "BES_CH06", "SIGNAL": "xbt/channel06" },
+        { "NAME": "BES_CH07", "SIGNAL": "xbt/channel07" },
+        { "NAME": "BES_CH08", "SIGNAL": "xbt/channel08" },
+        { "NAME": "BES_CH09", "SIGNAL": "xbt/channel09" },
+        { "NAME": "BES_CH10", "SIGNAL": "xbt/channel10" },
+        { "NAME": "BES_CH11", "SIGNAL": "xbt/channel11" },
+        { "NAME": "BES_CH12", "SIGNAL": "xbt/channel12" },
+        { "NAME": "BES_CH13", "SIGNAL": "xbt/channel13" },
+        { "NAME": "BES_CH14", "SIGNAL": "xbt/channel14" },
+        { "NAME": "BES_CH15", "SIGNAL": "xbt/channel15" },
+        { "NAME": "BES_CH16", "SIGNAL": "xbt/channel16" },
+        { "NAME": "BES_CH17", "SIGNAL": "xbt/channel17" },
+        { "NAME": "BES_CH18", "SIGNAL": "xbt/channel18" },
+        { "NAME": "BES_CH19", "SIGNAL": "xbt/channel19" },
+        { "NAME": "BES_CH20", "SIGNAL": "xbt/channel20" },
+        { "NAME": "BES_CH21", "SIGNAL": "xbt/channel21" },
+        { "NAME": "BES_CH22", "SIGNAL": "xbt/channel22" },
+        { "NAME": "BES_CH23", "SIGNAL": "xbt/channel23" },
+        { "NAME": "BES_CH24", "SIGNAL": "xbt/channel24" },
+        { "NAME": "BES_CH25", "SIGNAL": "xbt/channel25" },
+        { "NAME": "BES_CH26", "SIGNAL": "xbt/channel26" },
+        { "NAME": "BES_CH27", "SIGNAL": "xbt/channel27" },
+        { "NAME": "BES_CH28", "SIGNAL": "xbt/channel28" },
+        { "NAME": "BES_CH29", "SIGNAL": "xbt/channel29" },
+        { "NAME": "BES_CH30", "SIGNAL": "xbt/channel30" },
+        { "NAME": "BES_CH31", "SIGNAL": "xbt/channel31" },
+        { "NAME": "BES_CH32", "SIGNAL": "xbt/channel32" }
+    ]
+}

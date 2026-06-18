@@ -1,0 +1,29 @@
+{
+    "DESCRIPTION": "Global naming conventions for MAST gas_injection IDS.",
+    "VALVE_NAME": "{{ GAS_VALVES[#0].NAME }}",
+    "VALVE_SIGNAL": "{{ GAS_VALVES[#0].SIGNAL }}",
+
+    "_COMMENT_VALVES": "MAST gas valve signals change naming convention at shot 28356 (underscore to slash). Only the newer slash-convention signals are listed here. For older shots (< 28356), the equivalent underscore names apply (e.g. XDC_GAS_F_TC5A). Valves are listed by their fuelling/impurity group. Channels without confirmed XDC signals are omitted.",
+    "GAS_VALVES": [
+        { "NAME": "TC5A",  "SIGNAL": "/xdc/gas/f/tc5a"  },
+        { "NAME": "TC5B",  "SIGNAL": "/xdc/gas/f/tc5b"  },
+        { "NAME": "TC11",  "SIGNAL": "/xdc/gas/f/tc11"  },
+        { "NAME": "BC5",   "SIGNAL": "/xdc/gas/f/bc5"   },
+        { "NAME": "HL1",   "SIGNAL": "/xdc/gas/f/hl1"   },
+        { "NAME": "HU6",   "SIGNAL": "/xdc/gas/f/hu6"   },
+        { "NAME": "HU8",   "SIGNAL": "/xdc/gas/f/hu8"   },
+        { "NAME": "HU11",  "SIGNAL": "/xdc/gas/f/hu11"  },
+        { "NAME": "HL11",  "SIGNAL": "/xdc/gas/f/hl11"  },
+        { "NAME": "BC11",  "SIGNAL": "/xdc/gas/f/bc11"  },
+        { "NAME": "HECC",  "SIGNAL": "/xdc/gas/f/hecc"  },
+        { "NAME": "HEOA",  "SIGNAL": "/xdc/gas/f/heoa"  },
+        { "NAME": "HEOB",  "SIGNAL": "/xdc/gas/f/heob"  },
+        { "NAME": "HM12A", "SIGNAL": "/xdc/gas/f/hm12a" },
+        { "NAME": "HM12B", "SIGNAL": "/xdc/gas/f/hm12b" },
+        { "NAME": "IBIL",  "SIGNAL": "/xdc/gas/f/ibil"  },
+        { "NAME": "IBFUA", "SIGNAL": "/xdc/gas/f/ibfua" },
+        { "NAME": "IBFUB", "SIGNAL": "/xdc/gas/f/ibfub" },
+        { "NAME": "IBFLA", "SIGNAL": "/xdc/gas/f/ibfla" },
+        { "NAME": "IBFLB", "SIGNAL": "/xdc/gas/f/ibflb" }
+    ]
+}

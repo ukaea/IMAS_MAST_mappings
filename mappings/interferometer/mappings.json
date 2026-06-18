@@ -1,0 +1,26 @@
+{
+    "ids_properties/homogeneous_time": 0,
+    "channel": {
+        "map_type": "VALUE",
+        "value": 1
+    },
+    "channel[#]/name": {
+        "map_type": "VALUE",
+        "value": "ANE"
+    },
+    "channel[#]/n_e_line/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "ANE_DENSITY"
+        }
+    },
+    "channel[#]/n_e_line/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "ANE_DENSITY",
+            "time": true
+        }
+    }
+}

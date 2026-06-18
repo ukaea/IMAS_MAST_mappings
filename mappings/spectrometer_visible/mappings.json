@@ -1,0 +1,29 @@
+{
+    "ids_properties/homogeneous_time": 0,
+
+    "_COMMENT_structure": "MAST has two spectrometer_visible subsystems: D-alpha (XIM, 3 channels) and BES (XBT, 32 channels). Both map to filter_spectrometer/photoelectric_voltage. They are stored as separate IDS occurrences (occurrence 0 = Dalpha, occurrence 1 = BES) in practice, but this single mapping file covers the Dalpha channels. A separate mapping for BES would require a second occurrence.",
+
+    "channel": {
+        "map_type": "VALUE",
+        "value": "{{ length(DALPHA_CHANNELS) }}"
+    },
+    "channel[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ DALPHA_NAME }}"
+    },
+    "channel[#]/filter_spectrometer/photoelectric_voltage/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ DALPHA_SIGNAL }}"
+        }
+    },
+    "channel[#]/filter_spectrometer/photoelectric_voltage/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ DALPHA_SIGNAL }}",
+            "time": true
+        }
+    }
+}

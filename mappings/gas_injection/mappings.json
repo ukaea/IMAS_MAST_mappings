@@ -1,0 +1,44 @@
+{
+    "ids_properties/homogeneous_time": 0,
+    "time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "AGA_INTEG_GAS"
+        }
+    },
+
+    "_COMMENT_aggregate_signals": "AGA_INTEG_GAS, AGA_FIG, AGA_INBOARD_TOTAL, AGA_OUTBOARD_TOTAL are aggregate diagnostic signals with no corresponding IDS path in the gas_injection IDS. They are not mapped here.",
+
+    "valve": {
+        "map_type": "VALUE",
+        "value": "{{ length(GAS_VALVES) }}"
+    },
+    "valve[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ VALVE_NAME }}"
+    },
+    "valve[#]/voltage/data": {
+        "COMMENT": "Valve drive voltage from XDC gas flow signal. Newer shots (>= 28356) use slash convention (/xdc/gas/f/<n>); older shots use underscore (XDC_GAS_F_<N>). This mapping uses the newer convention.",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ VALVE_SIGNAL }}"
+        }
+    },
+    "valve[#]/voltage/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ VALVE_SIGNAL }}",
+            "time": true
+        }
+    },
+
+    "_COMMENT_target_voltage": "gas_injection/valve/target_voltage does not exist in the IMAS DD. The XDC/GAS/T group target voltage signals (/xdc/gas/t/g1-g12) have no valid IDS destination and are not mapped.",
+    "_valve[#]/target_voltage/data": {
+        "COMMENT": "No target_voltage path exists in the gas_injection IDS DD",
+        "map_type": "VALUE",
+        "VALUE": 0
+    }
+}

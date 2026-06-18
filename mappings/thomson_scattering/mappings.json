@@ -1,0 +1,84 @@
+{
+    "ids_properties/homogeneous_time": 0,
+
+    "time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ TE_SIGNAL }}"
+        }
+    },
+
+    "_COMMENT_channel_count": "Channel count is driven by the number of radial positions returned by the R signal. Each spatial position is a separate channel in the IDS.",
+    "channel": {
+        "map_type": "DIMENSION",
+        "DIM_PROBE": "_channel_r_positions"
+    },
+    "_channel_r_positions": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ R_SIGNAL }}"
+        }
+    },
+
+    "channel[#]/name": {
+        "map_type": "VALUE",
+        "value": "HRTS_CH{{ #0 + 1 }}"
+    },
+    "channel[#]/position/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ R_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}]"
+    },
+
+    "channel[#]/t_e/data": {
+        "COMMENT": "AYC_TE is a 2D (major_radius x time) signal. Slice to get the time series for channel #0.",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ TE_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}][:]"
+    },
+    "channel[#]/t_e/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ TE_SIGNAL }}",
+            "time": true
+        }
+    },
+
+    "channel[#]/n_e/data": {
+        "COMMENT": "AYC_NE is a 2D (major_radius x time) signal.",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ NE_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}][:]"
+    },
+    "channel[#]/n_e/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ NE_SIGNAL }}",
+            "time": true
+        }
+    },
+
+    "_COMMENT_p_e": "thomson_scattering/channel/p_e does not exist in the IMAS DD. Electron pressure from AYC_PE has no valid IDS destination at the channel level.",
+    "_channel[#]/p_e/data": {
+        "COMMENT": "p_e not in thomson_scattering IDS DD",
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ PE_SIGNAL }}"
+        },
+        "slice": "[{{ #0 }}][:]"
+    }
+}

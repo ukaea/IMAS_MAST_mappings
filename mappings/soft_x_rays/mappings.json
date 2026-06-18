@@ -1,0 +1,74 @@
+{
+    "ids_properties/homogeneous_time": 0,
+
+    "_COMMENT_brightness": "channel/brightness/data is FLT_2D in the DD (energy_band x time). MAST SXR detectors are broad-band filtered diodes with a single effective energy band, so in practice this is (1 x time). The signal slice [0][:] extracts the single band's time series.",
+    "_COMMENT_shot_range": "Signals use slash convention (/xsx/...) valid for shots >= 25814. For shots < 25814 substitute underscore convention (XSX_TCAM#N, XSX_HCAML#N, XSX_HCAMU#N) at the ingestion layer.",
+
+    "time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "/xsx/TCAM/1"
+        }
+    },
+
+    "channel": {
+        "map_type": "VALUE",
+        "value": "{{ length(SXR_CHANNELS) }}"
+    },
+
+    "channel[#]/name": {
+        "map_type": "VALUE",
+        "value": "{{ SXR_NAME }}"
+    },
+
+    "channel[#]/brightness/data": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SXR_SIGNAL }}"
+        }
+    },
+    "channel[#]/brightness/time": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "UDA",
+        "args": {
+            "signal": "{{ SXR_SIGNAL }}",
+            "time": true
+        }
+    },
+
+    "channel[#]/line_of_sight/first_point/r": {
+        "COMMENT": "Line-of-sight origin R from MAST geometry service (/xraycams/core/<stem>). Verify geometry service key names against the xraycams.nc file used in mast.yml.",
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/xraycams/core/{{ SXR_NAME }}",
+            "key": "origin_r"
+        }
+    },
+    "channel[#]/line_of_sight/first_point/z": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/xraycams/core/{{ SXR_NAME }}",
+            "key": "origin_z"
+        }
+    },
+    "channel[#]/line_of_sight/second_point/r": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/xraycams/core/{{ SXR_NAME }}",
+            "key": "endpoint_r"
+        }
+    },
+    "channel[#]/line_of_sight/second_point/z": {
+        "map_type": "DATA_SOURCE",
+        "data_source": "GEOMETRY",
+        "args": {
+            "signal": "/xraycams/core/{{ SXR_NAME }}",
+            "key": "endpoint_z"
+        }
+    }
+}

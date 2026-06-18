@@ -1,0 +1,9 @@
+{
+    "DESCRIPTION": "Global naming conventions for MAST charge_exchange IDS. MAST's CXRS system (ACT diagnostic) outputs radial profiles directly as 2D signals (major_radius x time) rather than raw per-chord data. The IDS per-channel structure is approximated by treating each spatial position as a separate channel.",
+
+    "_COMMENT_signals": "ACT_SS_TEMPERATURE and ACT_SS_VELOCITY are 2D signals (major_radius x time). ACT_SS_MAJOR_RADIUS gives the radial positions and drives the channel count.",
+
+    "TI_SIGNAL": "ACT_SS_TEMPERATURE",
+    "VI_SIGNAL": "ACT_SS_VELOCITY",
+    "R_SIGNAL":  "ACT_SS_MAJOR_RADIUS"
+}
